@@ -44,8 +44,8 @@ function Login({setRegister}){
             <h1 className="text-2xl font-extrabold mb-5">Login de Usuario</h1>
             <p className="mb-3">Ingresa tus datos para acceder a tu cuenta</p>
 
-            {successLogin && <Alert color="green" message={successLogin} />}
-            {errorLogin && <Alert color="red" message={errorLogin} />}
+            {successLogin && <Alert type="success" message={successLogin} />}
+            {errorLogin && <Alert type="error" message={errorLogin} />}
 
             <form onSubmit={handleSubmit} className="flex flex-col py-5">
                 <input type="text" placeholder="Ingresa el email" id="email" name="email" required onChange={e => {

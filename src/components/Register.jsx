@@ -50,8 +50,8 @@ function Register({setLogin}){
             <h1 className="text-2xl font-extrabold mb-5">Registro de Usuario</h1>
             <p className="mb-3">Ingresa tus datos para crear una cuenta</p>
 
-            {successRegister && <Alert color="green" message={successRegister} />}
-            {errorRegister && <Alert color="red" message={errorRegister} />}
+            {successRegister && <Alert type="success" message={successRegister} />}
+            {errorRegister && <Alert type="error" message={errorRegister} />}
 
             <form onSubmit={handleSubmit} className="flex flex-col py-5">
                 <input type="text" placeholder="Número de documento" id="documento" name="documento" required onChange={e => {
