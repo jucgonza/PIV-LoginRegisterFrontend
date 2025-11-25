@@ -30,34 +30,38 @@ function Login({setRegister}){
         }catch(e){
             // Login fallido
             let message = e.response?.data?.message ?? 'Error desconocido';
-            setErrorLogin(`Error al hacer proceso de login, error: ${message}`)
+            setErrorLogin(`Error al hacer proceso de login, error: ${message}`);
+
+            // Limpia campo password
+            setPassword('');
+            document.querySelector('#password').value = '';
         }
     }
 
     return <>
-        <div>
-            <h1>Login de Usuario</h1>
-            <p>Ingresa tus datos para acceder a tu cuenta</p>
+        <div className="bg-white w-full max-w-md py-8 px-6 rounded-xl shadow-lg text-center text-gray-600 font-poppins">
+            <h1 className="text-2xl font-extrabold mb-5">Login de Usuario</h1>
+            <p className="mb-3">Ingresa tus datos para acceder a tu cuenta</p>
             {successLogin && 
-                <div>
-                    <p>{successLogin}</p>
+                <div className="bg-green-50 border border-green-500 text-green-800 rounded-lg p-4 break-words">
+                    {successLogin}
                 </div>
             }
             {errorLogin && 
-                <div>
-                    <p>{errorLogin}</p>
+                <div className="bg-red-50 border border-red-500 text-red-800 rounded-lg p-4">
+                    {errorLogin}
                 </div>
             }
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Email" id="email" name="email" required onChange={e => {
+            <form onSubmit={handleSubmit} className="flex flex-col py-5">
+                <input type="text" placeholder="Ingresa el email" id="email" name="email" required onChange={e => {
                     setEmail(e.target.value);
-                }}/>
+                }} className="px-4 py-2 border rounded-md border-gray-300 outline-none focus:ring-2 focus:ring-yellow-200 mb-4"/>
                 <input type="password" placeholder="Contraseña" id="password" name="password" required onChange={e => 
                     setPassword(e.target.value)
-                }/>
-                <button type="submit">Acceder</button>
+                } className="px-4 py-2 border rounded-md border-gray-300 outline-none focus:ring-2 focus:ring-yellow-200 mb-6"/>
+                <button type="submit" className="bg-yellow-400 cursor-pointer rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-yellow-200 focus:bg-yellow-500 hover:bg-yellow-300">Acceder</button>
             </form>
-            <p>¿No tienes una cuenta? <span onClick={setRegister}>Crea una ahora</span></p>
+            <p>¿No tienes una cuenta? <b onClick={setRegister} className="cursor-pointer hover:text-gray-900">Crea una ahora</b></p>
         </div>
     </>;
 }
