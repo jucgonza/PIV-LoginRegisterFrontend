@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import Alert from './Alert';
 
 function Login({setRegister}){
 
@@ -42,16 +43,10 @@ function Login({setRegister}){
         <div className="bg-white w-full max-w-md py-8 px-6 rounded-xl shadow-lg text-center text-gray-600 font-poppins">
             <h1 className="text-2xl font-extrabold mb-5">Login de Usuario</h1>
             <p className="mb-3">Ingresa tus datos para acceder a tu cuenta</p>
-            {successLogin && 
-                <div className="bg-green-50 border border-green-500 text-green-800 rounded-lg p-4 break-words">
-                    {successLogin}
-                </div>
-            }
-            {errorLogin && 
-                <div className="bg-red-50 border border-red-500 text-red-800 rounded-lg p-4">
-                    {errorLogin}
-                </div>
-            }
+
+            {successLogin && <Alert color="green" message={successLogin} />}
+            {errorLogin && <Alert color="red" message={errorLogin} />}
+
             <form onSubmit={handleSubmit} className="flex flex-col py-5">
                 <input type="text" placeholder="Ingresa el email" id="email" name="email" required onChange={e => {
                     setEmail(e.target.value);

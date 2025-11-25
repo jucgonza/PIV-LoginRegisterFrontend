@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import Alert from './Alert';
 
 function Register({setLogin}){
 
@@ -48,16 +49,10 @@ function Register({setLogin}){
         <div className="bg-white w-full max-w-md py-8 px-6 rounded-xl shadow-lg text-center text-gray-600 font-poppins">
             <h1 className="text-2xl font-extrabold mb-5">Registro de Usuario</h1>
             <p className="mb-3">Ingresa tus datos para crear una cuenta</p>
-            {successRegister && 
-                <div className="bg-green-50 border border-green-500 text-green-800 rounded-lg p-4 break-words">
-                    {successRegister}
-                </div>
-            }
-            {errorRegister && 
-                <div className="bg-red-50 border border-red-500 text-red-800 rounded-lg p-4">
-                    {errorRegister}
-                </div>
-            }
+
+            {successRegister && <Alert color="green" message={successRegister} />}
+            {errorRegister && <Alert color="red" message={errorRegister} />}
+
             <form onSubmit={handleSubmit} className="flex flex-col py-5">
                 <input type="text" placeholder="Número de documento" id="documento" name="documento" required onChange={e => {
                     setDocumentNumber(e.target.value);
