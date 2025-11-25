@@ -1,16 +1,49 @@
-# React + Vite
+# Login y Registro de usuarios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta aplicación permite iniciar sesión y registrarse a usuarios, persiste la información en una base de datos mysql y cuenta con algunas características de seguridad y privacidad como la encripción de la contraseña y sesión basada en token JWT.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Encripción de la contraseña.
+- Persistencia de los datos en base de datos MySQL.
+- Registro de usuarios nuevos y control de registros duplicados (por email).
+- Inicio de sesión seguro a través de JWT.
 
-## React Compiler
+## 🎨 Design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Minimalista
+- Simple
+- Buen contraste
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/jucgonza/PIV-LoginRegisterFrontend.git
+cd PIV-LoginRegisterFrontend
+```
+
+2. Instalar dependencias
+
+```bash
+npm install
+```
+
+3. Ejecutar la app
+
+Para iniciar el servidor de desarrollo, ejecute:
+
+```bash
+npm run dev
+```
+
+## 🛠️ Construido con
+
+- [React](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [Tailwindcss](https://tailwindcss.com/)
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT
